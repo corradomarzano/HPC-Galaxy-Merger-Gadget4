@@ -1,9 +1,9 @@
 # HPC Galaxy Merger Simulation with Gadget4 🌌
 [Leggi in Italiano (IT)](LEGGIMI.md) | [Read in English (EN)](README.md)
 
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20HPC%20Cluster-red)](#)
-[![Language](https://img.shields.io/badge/Language-C%20%7C%20Python%20%7C%20Bash-blue)](#)
-[![Parallelization](https://img.shields.io/badge/Parallel-MPI%20%7C%20OpenMP-orange)](#)
+[![Platform](https://img.shields.io/badge/Platforms-Linux%20%7C%20HPC%20Cluster-red)](#)
+[![Language](https://img.shields.io/badge/Languages-C%20%7C%20Python%20%7C%20Bash-blue)](#)
+[![Parallelization](https://img.shields.io/badge/Parallelization-MPI%20%7C%20OpenMP-orange)](#)
 [![Physics](https://img.shields.io/badge/Physics-SPH%20%26%20N--Body-green)](#)
 
 This project focuses on simulating the collision and merging process of two galaxies using **Gadget4**, a massively parallel code for cosmological N-body/SPH simulations. The simulation accounts for Dark Matter dynamics, gas hydrodynamics, radiative cooling, and star formation.
