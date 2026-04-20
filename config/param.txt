@@ -1,5 +1,5 @@
 %----  Relevant files 
-InitCondFile        /u/vrs/Simulations/ICs/ExampleICs/ics_collision_g4.dat  % Insert your path to the .dat file
+InitCondFile        /main/config/ics_collision_g4.dat  % Insert your path to the .dat file
 OutputDir           ./output
 SnapshotFileBase    snapshot
 OutputListFilename  empty.txt
