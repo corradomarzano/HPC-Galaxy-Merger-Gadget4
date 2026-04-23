@@ -84,7 +84,10 @@ The project implements a complete data analysis pipeline:
 
 1. **Preprocessing:** A Python-based extraction tool (`Data_Table_Acquirer.ipynb`) converts the binary HDF5 snapshots into structured `.csv` datasets for efficient handling.
 
-2. **Analysis:** Post-processing and Data Analysis are performed in `Data_Analysis.ipynb`. This includes evaluating the **star formation rate (SFR)** and subsequent **gas depletion** (incorporating a mass conservation check to verify numerical accuracy). Additionally, the notebook generates **gas density histograms** throughout the merger and assesses **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
+2. **Analysis:** Post-processing and Data Analysis are performed in `Data_Analysis.ipynb`. This includes:
+   - Evaluating the **star formation rate (SFR)** and subsequent **gas depletion** (incorporating a mass conservation check to verify numerical accuracy),
+   - Plotting **gas density histograms** and
+   - Assessing **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
 
 
 
