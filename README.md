@@ -67,7 +67,8 @@ Configure the code via Config.sh and the Makefile (edit the files as needed):
 make
 ```
 
-*Note*: Ensure that the compiler you use (and only that one) is set in the Makefile by uncommenting it (Default: SYSTYPE="Generic-gcc").
+$Note_{(1)}$: Ensure that the compiler you use (and only that one) is set in the Makefile by uncommenting it (Default: SYSTYPE="Generic-gcc").  
+$Note_{(2)}$: The **Initial Conditions (ICs)** for the simulation are provided by a *.dat* binary file (lagrangian ICs for each particle) and by a *param* text file containing runtime values, tuning parameters and cosmology setup (not relevant for a galaxy merger).
 
 ### 3. Execution
 Run the simulation using MPI tasks with *N* processors:
@@ -77,21 +78,7 @@ mpirun -np N ./Gadget4 param.txt
 
 *Note*: Specify the full path to the parameters file *param.txt* and to the mpi library for *mpirun*.
 
-## 🚀 Technical Overview
-
-- **Code:** Gadget4 (C language, MPI/OpenMP parallelization).
-
-- **Environment:** Run on an HPC cluster to manage high-resolution particle interaction.
-
-- **Physics Modules:** - N-body dynamics for Dark Matter and Stars.
-
-  - Smoothed Particle Hydrodynamics (SPH) for the gaseous component.
-
-  - Star formation and cooling functions.
-
-
-
-## 🛠️ Data Pipeline
+## 💾 Data Pipeline
 
 The project implements a complete data analysis pipeline:
 
@@ -131,4 +118,4 @@ The project implements a complete data analysis pipeline:
 
 **Author:** [Corrado Marzano](https://www.linkedin.com/in/corrado-marzano-7846353a8/)  
 
-**Course:** Computing Methods for Astrophysics - Sapienza University of Rome
+**Research Context:** Computing Methods for Astrophysics exam @ Sapienza University of Rome
