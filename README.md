@@ -55,7 +55,7 @@ The simulation was performed on the **Vera** (Sapienza) and **Leonardo** (CINECA
 ## 🛠️ Compile & Run the Code
 
 ### 1. Environment Setup
-Load the required compiler and libraries:
+Download the [Gadget4](https://wwwmpa.mpa-garching.mpg.de/gadget4/) code, then load the required compiler and libraries:
 ```bash
 scl enable devtoolset-8 bash
 # Ensure MPI and HDF5 paths are exported
