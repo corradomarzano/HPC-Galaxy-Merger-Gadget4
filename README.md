@@ -110,11 +110,11 @@ The project implements a complete data analysis pipeline:
 
 ## 📂 Repository Structure
 
-- `config/`: Gadget4 configuration and parameter files.
+- `config/`: Gadget4 configuration and parameters files.
 
 - `scripts/`: Python tools for data processing and scientific plotting.
 
-- `plots/`: High-resolution renders of the simulation.
+- `plots/`: High-resolution renders of the simulation and plots of the data analysis.
 
 
 
