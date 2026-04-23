@@ -8,7 +8,74 @@
 
 This project focuses on simulating the collision and merging process of two galaxies using **Gadget4**, a massively parallel code for cosmological N-body/SPH simulations. The simulation accounts for Dark Matter dynamics, gas hydrodynamics, radiative cooling, and star formation.
 
+## 📚 State of the Art & Introduction
+Cosmological simulations are the primary tool for studying the large-scale structure and evolution of the universe. Following the **$\Lambda CDM$ model**, Dark Matter (DM) provides the main
+gravitational framework for structure formation: it is a **massive** yet **non-interactive** type of matter, a characteristic to which it owes its *"dark"* nature, representing over 85% of the total matter in the universe.  
 
+This project simulates a **Galaxy Merger**, focusing on the interplay between:
+- **Dark Matter & Stars:** Modeled as collisionless particles (N-body dynamics).
+- **Interstellar Gas:** Modeled using **Smoothed Particle Hydrodynamics (SPH)**.
+- **Baryonic Physics:** Including radiative cooling and star formation (SFR).
+
+  <figure>
+  <p align="center">
+    <img width="400" height="200" alt="cosmic web" src="https://github.com/user-attachments/assets/4aa4bef1-1e31-4ec7-9516-11dce0cc2316" />
+  </p>
+  <figcaption>
+    <p align="center">
+      <i> 
+        <strong>The Cosmic Web:</strong> The large-scale structure of matter in the universe, formed by gravitational interactions.
+      (<a href="https://bigthink.com/hard-science/cosmic-web/"><em>Image Reference</em></a>)
+      </i>
+    </p>
+  </figcaption>
+  </figure>
+
+## 💻 HPC & Parallel Computing
+The simulation was performed on the **Vera** (Sapienza) and **Leonardo** (CINECA) clusters.
+- **HPC Infrastructure:** Leveraging massive parallelization to solve gravitational and hydrodynamical equations for thousands of particles.
+- **Environment:** Development required managing dependencies (GSL, FFTW, HDF5) and specific shell environments (e.g., `devtoolset-8`).
+- **Strategies:** Gadget4 uses a hybrid **MPI/Shared-Memory Use** approach. Each core is divided in two parts, the first one handles the physical computation through MPI (domain decomposition via TreePM), while the other solely intercedes in the communication requests between nodes (minimizing its latency and eliminating the synchronization losses) through Shared-Memory Use.
+
+  <figure>
+  <p align="center">
+    <img width="350" height="350" alt="mpi_open_mp_tree" src="https://github.com/user-attachments/assets/bea7b9b5-ae7d-4bc4-be67-70d01fae912f" />
+  </p>
+  <figcaption>
+    <p align="center">
+      <i> 
+        <strong>Gadget4 Parallelization Scheme.</strong><br>
+        (<a href="https://arxiv.org/pdf/2010.03567"><em>Image Reference: Gadget4 Code Paper</em></a>)
+      </i>
+    </p>
+  </figcaption>
+</figure>
+
+
+## 🛠️ Compile & Run the Code
+
+### 1. Environment Setup
+Load the required compiler and libraries:
+```bash
+scl enable devtoolset-8 bash
+# Ensure MPI and HDF5 paths are exported
+```
+
+### 2. Compilation
+Configure the code via Config.sh and the Makefile (edit the files as needed):
+```bash
+make
+```
+
+*Note*: Ensure that the compiler you use (and only that one) is set in the Makefile by uncommenting it (Default: SYSTYPE="Generic-gcc").
+
+### 3. Execution
+Run the simulation using MPI tasks with *N* processors:
+```bash
+mpirun -np N ./Gadget4 param.txt
+```
+
+*Note*: Specify the full path to the parameters file *param.txt* and to the mpi library for *mpirun*.
 
 ## 🚀 Technical Overview
 
@@ -62,6 +129,6 @@ The project implements a complete data analysis pipeline:
 
 ---
 
-**Author:** Corrado Marzano  
+**Author:** [Corrado Marzano](https://www.linkedin.com/in/corrado-marzano-7846353a8/)  
 
 **Course:** Computing Methods for Astrophysics - Sapienza University of Rome
