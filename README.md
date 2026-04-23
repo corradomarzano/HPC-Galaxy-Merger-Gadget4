@@ -76,7 +76,7 @@ Run the simulation using MPI tasks with *N* processors:
 mpirun -np N ./Gadget4 param.txt
 ```
 
-*Note*: Specify the full path to the parameters file *param.txt* and to the mpi library for *mpirun*.
+*Note*: Specify the full paths to the parameters' file *param.txt* and to the mpi library for *mpirun*.
 
 ## 💾 Data Pipeline
 
