@@ -89,7 +89,10 @@ The project implements a complete data analysis pipeline:
    - Plotting **gas density histograms** and
    - Assessing **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
 
-
+*Note - Install dependencies*:
+   ```bash
+   pip install -r scripts/requirements.txt
+   ```
 
 ## 📊 Key Results
 
