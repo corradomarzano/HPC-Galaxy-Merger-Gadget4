@@ -82,11 +82,9 @@ mpirun -np N ./Gadget4 param.txt
 
 The project implements a complete data analysis pipeline:
 
-1. **Simulation:** Execution of the merger using specialized `.param` and `.config` setups.
+1. **Preprocessing:** A Python-based extraction tool (`Data_Table_Acquirer.ipynb`) converts the binary HDF5 snapshots into structured `.csv` datasets for efficient handling.
 
-2. **Preprocessing:** A Python-based extraction tool converts raw binary simulation outputs into structured `.csv` datasets for efficient handling.
-
-3. **Analysis:** Statistical modeling of gas density histograms, mass conservation checks, and star formation rate (SFR) evolution.
+2. **Analysis:** Post-processing and Data Analysis are performed in `Data_Analysis.ipynb`. This includes evaluating the **star formation rate (SFR)** and subsequent **gas depletion** (incorporating a mass conservation check to verify numerical accuracy). Additionally, the notebook generates **gas density histograms** throughout the merger and assesses **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
 
 
 
