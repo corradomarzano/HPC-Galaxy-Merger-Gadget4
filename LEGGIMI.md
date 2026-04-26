@@ -34,7 +34,7 @@ Questo progetto simula la fusione di due galassie (**Galaxy Merger**), concentra
 La simulazione è stata eseguita sui cluster **Vera** (Sapienza) e **Leonardo** (CINECA).
 - **Infrastruttura HPC:** Utilizzo di parallelizzazione massiva per risolvere le equazioni gravitazionali e idrodinamiche per migliaia di particelle.
 - **Ambiente:** Lo sviluppo ha richiesto la gestione di dipendenze (GSL, FFTW, HDF5) e specifici ambienti shell (es. `devtoolset-8`).
-- **Strategie:** Gadget4 utilizza un approccio ibrido **MPI/Shared-Memory**. Ogni core è diviso in due parti: la prima gestisce il calcolo fisico tramite MPI (decomposizione del dominio via TreePM), mentre la seconda interviene esclusivamente nelle richieste di comunicazione tra i nodi (minimizzando la latenza ed eliminando le perdite di sincronizzazione) tramite Shared-Memory.
+- **Strategie:** Gadget4 utilizza un approccio ibrido **MPI/Shared-Memory Use**. Ogni core è diviso in due parti: la prima gestisce il calcolo fisico tramite MPI (decomposizione del dominio via TreePM), mentre la seconda interviene esclusivamente nelle richieste di comunicazione tra i nodi (minimizzando la latenza ed eliminando le perdite di sincronizzazione) tramite Shared-Memory.
 
   <figure>
   <p align="center">
@@ -51,7 +51,7 @@ La simulazione è stata eseguita sui cluster **Vera** (Sapienza) e **Leonardo** 
 </figure>
 
 
-## 🛠️ Compilazione ed Esecuzione
+## 🛠️ Compilazione ed Esecuzione del Codice
 
 ### 1. Setup dell'Ambiente
 Scaricare il codice [Gadget4](https://wwwmpa.mpa-garching.mpg.de/gadget4/), quindi caricare il compilatore e le librerie richieste:
@@ -66,7 +66,7 @@ make
 ```
 
 $Nota_{(1)}$: Assicurarsi che il compilatore utilizzato (e solo quello) sia impostato nel Makefile decommentandolo (Default: SYSTYPE="Generic-gcc").  
-$Nota_{(2)}$: Le **Condizioni Iniziali (ICs)** per la simulazione sono fornite da un file binario *.dat* (ICs lagrangiane per ogni particella) e da un file di testo *.param* contenente i valori di runtime, i parametri di tuning e il setup cosmologico (non rilevante per un merger galattico).
+$Nota_{(2)}$: Le **Condizioni Iniziali (ICs)** per la simulazione sono fornite da un file binario *.dat* (ICs lagrangiane per ogni particella) e da un file di testo *param* contenente i valori di runtime, i parametri di tuning e il setup cosmologico (non rilevante per un merger galattico).
 
 ### 3. Esecuzione
 Eseguire la simulazione utilizzando task MPI con *N* processori:
@@ -82,12 +82,12 @@ Il progetto implementa una pipeline completa di analisi dei dati:
 
 1. **Preprocessing:** Uno strumento di estrazione basato su Python (`Data_Table_Acquirer.ipynb`) converte gli snapshot binari HDF5 in dataset strutturati `.csv` per una gestione efficiente.
 
-2. **Analisi:** Il post-processing e l'analisi dei dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
-   - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica),
+2. **Analisi:** Il Post-processing e l'Analisi Dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
+   - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica del codice),
    - Generazione di **istogrammi di densità del gas**,
-   - Valutazione dell'**efficienza computazionale** (misurata tramite il tempo trascorso) in funzione sia del numero di core utilizzati che del tempo totale di simulazione.
+   - Valutazione dell'**efficienza computazionale** (misurata in termini di tempo di esecuzione) in funzione sia del numero di core utilizzati che della durata totale della simulazione.
 
-*Nota - Installazione dipendenze*:
+*Nota - Installazione delle librerie richieste*:
    ```bash
    pip install -r scripts/requirements.txt
    ```
@@ -96,11 +96,11 @@ Il progetto implementa una pipeline completa di analisi dei dati:
 
 ### 1. Efficienza Computazionale e Scaling Parallelo
 
-Le prestazioni della simulazione sono state analizzate sul cluster HPC per valutare lo **Strong Scaling** e la prevedibilità dell'esecuzione:
+Le prestazioni della simulazione sono state sottoposte a benchmark sul cluster HPC per valutare lo **Strong Scaling** e la prevedibilità dell'esecuzione:
 
-* **Speedup Parallelo:** I benchmark mostrano che la simulazione su 16 processori è circa **1.6 volte più lenta** rispetto a 32 processori, e **2.7 volte più lenta** rispetto a 48 processori. Ciò dimostra un utilizzo efficace dell'architettura ibrida MPI/Shared-Memory, con significativi guadagni prestazionali all'aumentare delle risorse computazionali.
-* **Linearità Temporale:** Per verificare la stabilità del codice e l'overhead, è stato eseguito un test di consistenza. Aumentando il tempo fisico simulato di un fattore 4 (su un setup fisso a 48 processori) si è ottenuto un aumento perfettamente proporzionale di **4 volte del tempo di calcolo (wall-clock time)**, con un'incertezza trascurabile di $\pm 0.12$ ore.
-* **Significatività:** Questi risultati confermano che l'implementazione di Gadget4 sul cluster scala in modo efficiente e mantiene un costo computazionale prevedibile, fattore critico per simulazioni astrofisiche su larga scala.
+* **Speedup Parallelo:** I test indicano che la simulazione su 16 processori risulta circa **1.6 volte più lenta** rispetto a 32 processori, e **2.7 volte più lenta** rispetto a 48 processori. Questi dati dimostrano un'efficace ottimizzazione dell'architettura ibrida MPI/Shared-Memory, evidenziando significativi guadagni prestazionali circa lineari all'aumentare delle risorse computazionali utilizzate.
+* **Linearità Temporale:** Per verificare la stabilità del codice e l'overhead di calcolo, è stato eseguito un test di consistenza. Quadruplicando il tempo fisico simulato, mantenendo il setup fisso a 48 processori, si è riscontrato un incremento perfettamente proporzionale (**4x**) del **tempo di calcolo (wall-clock time)**, con un'incertezza trascurabile di $\pm 0.12$ ore.
+* **Significatività:** Tali risultati confermano che l'implementazione di Gadget4 sul cluster scala efficientemente e mantiene un costo computazionale prevedibile, requisito fondamentale per simulazioni astrofisiche su larga scala.
 
   <figure>
   <p align="center">
@@ -139,7 +139,7 @@ La simulazione traccia la trasformazione dinamica del sistema su un arco tempora
 
 ### 3. Dinamica della Formazione Stellare, Conservazione Numerica ed Evoluzione della Densità del Gas
 La simulazione traccia accuratamente la conversione della componente gassosa in massa stellare, governata dai processi di formazione stellare e raffreddamento radiativo.
-- **Tasso di Formazione Stellare (SFR):** L'analisi post-merger mostra un rapido picco iniziale di formazione stellare dovuto alla compressione del gas. Il processo raggiunge infine un **plateau asintotico**, indicando saturazione. Questo comportamento è fisicamente coerente con l'assenza di **feedback stellare** nella specifica configurazione, che normalmente reintegrerebbe la riserva di gas o ne regolerebbe la formazione.
+- **Tasso di Formazione Stellare (SFR):** L'analisi post-merger mostra un rapido picco iniziale di formazione stellare dovuto alla compressione del gas. Il processo raggiunge infine un **plateau asintotico**, indicando una saturazione. Questo comportamento è fisicamente coerente con l'assenza di **feedback stellare** nella specifica configurazione, che normalmente reintegrerebbe la riserva di gas o ne regolerebbe la formazione.
 - **Test di Conservazione della Massa:** Come verifica cruciale della consistenza numerica del codice, la massa barionica totale ($M_{gas} + M_{stars}$) è stata monitorata durante l'intera scala temporale. Il trend perfettamente costante conferma l'affidabilità dell'integrazione e la corretta implementazione degli algoritmi di conversione.
   
   <figure>
@@ -157,9 +157,9 @@ La simulazione traccia accuratamente la conversione della componente gassosa in 
 </figure>
 
 ## 🏁 Conclusioni
-Il progetto dimostra come Gadget4 sia uno strumento potente e altamente personalizzabile per simulazioni cosmologiche. I punti chiave includono:
+Il progetto dimostra come Gadget4 sia uno strumento **potente** e **altamente personalizzabile** per simulazioni cosmologiche. I punti chiave includono:
 
-- **Accuratezza:** Il codice traccia con precisione il moto della DM e della materia barionica, misurando quantità fondamentali (densità, entropia, energia interna, ecc.) su scale cosmologiche, tenendo conto anche della formazione stellare e delle funzioni di raffreddamento.
+- **Accuratezza:** Il codice traccia con precisione il moto della materia oscura e barionica, misurando quantità fondamentali (densità, entropia, energia interna, ecc.) su scale cosmologiche, tenendo conto anche della formazione stellare e della funzione di raffreddamento.
 - **Insight Fisici:** La simulazione evidenzia il ruolo cruciale del feedback stellare (o della sua assenza) nel rifornimento della componente gassosa durante il processo di formazione stellare.
 - **Padronanza Tecnica:** Questo lavoro sottolinea l'importanza vitale dell'ottimizzazione del codice e delle strategie di parallelizzazione per ottenere risultati ad alte prestazioni nel calcolo scientifico.
 
