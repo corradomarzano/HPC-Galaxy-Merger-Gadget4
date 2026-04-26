@@ -11,7 +11,7 @@ Questo progetto si focalizza sulla simulazione del processo di collisione e fusi
 ## 📚 Stato dell'Arte e Introduzione
 Le simulazioni cosmologiche rappresentano lo strumento principale per studiare la struttura su larga scala e l'evoluzione dell'universo. Seguendo il **modello $\Lambda CDM$**, la Materia Oscura (DM) fornisce l'intelaiatura gravitazionale fondamentale per la formazione delle strutture: si tratta di un tipo di materia **massiva** ma **non interattiva**, caratteristica a cui deve la sua natura *"oscura"*, e rappresenta oltre l'85% della materia totale dell'universo.
 
-Questo progetto simula un **Galaxy Merger**, concentrandosi sull'interazione tra:
+Questo progetto simula una fusione tra due galassie (**Galaxy Merger**), concentrandosi sull'interazione tra:
 - **Materia Oscura e Stelle:** Modellati come particelle senza collisioni (dinamica N-body).
 - **Gas Interstellare:** Modellato tramite **Smoothed Particle Hydrodynamics (SPH)**.
 - **Fisica Barionica:** Include il raffreddamento radiativo e il tasso di formazione stellare (SFR).
