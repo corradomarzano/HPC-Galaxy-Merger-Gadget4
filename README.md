@@ -100,7 +100,7 @@ The project implements a complete data analysis pipeline:
 
 The simulation performance was benchmarked on the HPC cluster to evaluate **Strong Scaling** and execution predictability:
 
-* **Parallel Speedup:** Benchmarks show that the simulation on 16 processors is approximately **1.6x slower** than on 32 processors, and **2.7x slower** than on 48 processors. This demonstrates an effective utilization of the MPI/Shared-Memory hybrid architecture, showing significant performance gains as computational resources increase.
+* **Parallel Speedup:** Benchmarks show that the simulation on 16 processors is approximately **1.6x slower** than on 32 processors, and **2.7x slower** than on 48 processors. This demonstrates an effective utilization of the MPI/Shared-Memory hybrid architecture, showing significant near-linear performance gains as computational resources increase.
 * **Temporal Linearity:** To verify code stability and overhead, a consistency test was performed. Increasing the simulated physical runtime by a factor of 4 (on a fixed 48-processor setup) resulted in a perfectly proportional **4x increase in wall-clock time** (with a negligible uncertainty of $\pm 0.12$ hrs). 
 * **Significance:** These results confirm that the Gadget4 implementation on the cluster scales efficiently and maintains a predictable computational cost, which is critical for large-scale astrophysical simulations.
 
