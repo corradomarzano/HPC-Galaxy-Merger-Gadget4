@@ -96,17 +96,71 @@ The project implements a complete data analysis pipeline:
 
 ## 📊 Key Results
 
-- **Mass Conservation:** Verified total mass stability (Gas + Stars) across the cosmic time scale.
+### 1.  Computational Efficiency & Parallel Scaling
 
-- **Morphological Evolution:** Successful visualization of tidal tails and the formation of a single merged entity.
+The simulation performance was benchmarked on the HPC cluster to evaluate **Strong Scaling** and execution predictability:
 
-- **Gas Dynamics:** Analysis of density saturation and feedback effects.
+* **Parallel Speedup:** Benchmarks show that the simulation on 16 processors is approximately **1.6x slower** than on 32 processors, and **2.7x slower** than on 48 processors. This demonstrates an effective utilization of the MPI/Shared-Memory hybrid architecture, showing significant performance gains as computational resources increase.
+* **Temporal Linearity:** To verify code stability and overhead, a consistency test was performed. Increasing the simulated physical runtime by a factor of 4 (on a fixed 48-processor setup) resulted in a perfectly proportional **4x increase in wall-clock time** (with a negligible uncertainty of $\pm 0.12$ hrs). 
+* **Significance:** These results confirm that the Gadget4 implementation on the cluster scales efficiently and maintains a predictable computational cost, which is critical for large-scale astrophysical simulations.
 
+  <figure>
+  <p align="center">
+    <img width="500" height="500" src="plots/Simulation_Times.png" />
+  </p>
+</figure>
 
+### 2.  Morphological Evolution & Visual Analysis
+The simulation tracks the dynamic transformation of the system over a timespan of **3.92 Gyrs**, with a temporal resolution of **~69 Myrs** per snapshot (57 snapshots in total). The visual analysis allows us to distinguish between the gravitational scaffold (Dark Matter) and the visible baryonic components.
 
-*(Qui inseriresti una delle immagini della pagina 9 o 11 della tua presentazione)*
+- **Visual Mapping**
+  - **Halo Dynamics:** Representation of the $\color{blue}{\text{Dark Matter Halos}}$ (in $\color{blue}{blue}$) providing the gravitational potential.
 
+  - **Baryonic Components:** Multi-color mapping of the galaxies' structures ($\color{red}{Red\text{: Bulges}}$; $\color{limegreen}{Green\text{: Disks}}$; $\color{cyan}{Cyan\text{: Gas}}$; $\color{yellow}{Yellow\text{: Stars}}$). 
 
+- **Key Evolution Phases:**
+
+  - **Snapshot 1 (Initial State):** The two galaxies are distinct and isolated, beginning their approach.
+
+  - **Snapshot 28 (Merging Phase):** The collision begins. Interaction leads to the formation of prominent tidal tails and arms of baryonic matter.
+
+  - **Snapshot 56 (Merger Remnant):** The core merging process is complete. While the system is in the late stages of dynamical relaxation, the two original galaxies have fused into a single, indistinguishable morphological entity.
+ 
+  <figure>
+  <p align="center">
+    <img width="1000" height="1000" src="plots/DM.png" />
+  </p>
+  <p align="center">
+    <img width="1000" height="1000" src="plots/matter.png" />
+  </p>
+  </p>
+  <figcaption>
+    <p>
+      <i> 
+        $\hspace{32 mm}$ Snapshot 1 $\hspace{62 mm}$ Snapshot 28 $\hspace{62 mm}$ Snapshot 56 <br>
+      </i>
+    </p>
+  </figcaption>
+</figure>
+
+### 3.  Star Formation Dynamics, Numerical Conservation & Gas Density Evolution
+The simulation accurately tracks the conversion of the gaseous component into stellar mass, governed by the star formation and radiative cooling processes.
+- **Star Formation Rate (SFR):** Post-merger analysis shows a rapid initial burst of star formation due to gas compression. The process eventually reaches an **asymptotic plateau**, indicating saturation. This behavior is physically consistent with the absence of **stellar feedback** in the specific configuration, which would otherwise replenish the gas reservoir or regulate formation.
+- **Mass Conservation Test:** As a crucial verification of the code's numerical consistency, the total baryonic mass ($M_{gas} + M_{stars}$) was monitored throughout the cosmic time scale. The perfectly constant trend confirms the reliability of the integration and the correct implementation of the conversion algorithms.
+  
+  <figure>
+  <p align="center">
+    <img width="475" height="475" src="plots/Mass_Gas_Stars.png" />
+  </p>
+</figure>
+
+- **Gas Density Evolution:** Gas density histograms in logarithmic scale reveal the transition from diffuse interstellar medium to high-density star-forming regions during the core collision phase.  
+
+<figure>
+  <p align="center">
+    <img width="800" height="800" src="plots/Gas_Density_Histogram.png" />
+  </p>
+</figure>
 
 ## 📂 Repository Structure
 
