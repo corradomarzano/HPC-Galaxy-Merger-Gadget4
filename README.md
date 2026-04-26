@@ -86,7 +86,7 @@ The project implements a complete data analysis pipeline:
 
 2. **Analysis:** Post-processing and Data Analysis are performed in `Data_Analysis.ipynb`. This includes:
    - Evaluating the **star formation rate (SFR)** and subsequent **gas depletion** (incorporating a mass conservation check to verify numerical accuracy),
-   - Plotting **gas density histograms** and
+   - Plotting **gas density histograms**,
    - Assessing **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
 
 *Note - Install dependencies*:
