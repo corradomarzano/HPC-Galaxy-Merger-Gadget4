@@ -162,6 +162,16 @@ The simulation accurately tracks the conversion of the gaseous component into st
   </p>
 </figure>
 
+## 🏁 Conclusions
+The project demonstrates that Gadget4 is a powerful and highly customizable tool for cosmological simulations. Key takeaways include:
+
+- Accuracy: The code accurately tracks DM and baryonic matter motion, measuring fundamental quantities (density, entropy, internal energy, etc.) over cosmological scales accounting also for the star
+formation and cooling function.
+
+- Physical Insights: The simulation highlights the crucial role of stellar feedback (or its absence) in replenishing the gas component during the star formation process.
+
+- Technical Mastery: This work underscores the vital importance of code optimization and parallelization strategies to achieve high-performance results in scientific computing.
+
 ## 📂 Repository Structure
 
 - `config/`: Gadget4 configuration and parameters files.
