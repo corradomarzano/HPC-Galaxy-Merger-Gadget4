@@ -160,7 +160,7 @@ La simulazione traccia accuratamente la conversione della componente gassosa in 
 Il progetto dimostra come Gadget4 sia uno strumento **potente** e **altamente personalizzabile** per simulazioni cosmologiche. I punti chiave includono:
 
 - **Accuratezza:** Il codice traccia con precisione il moto della materia oscura e barionica, misurando quantità fondamentali (densità, entropia, energia interna, ecc.) su scale cosmologiche, tenendo conto anche della formazione stellare e della funzione di raffreddamento.
-- **Insight Fisici:** La simulazione evidenzia il ruolo cruciale del feedback stellare (o della sua assenza) nel rifornimento della componente gassosa durante il processo di formazione stellare.
+- **Considerazioni Fisiche:** La simulazione evidenzia il ruolo cruciale del feedback stellare (o della sua assenza) nel regolare la disponibilità della componente gassosa e nel modulare i processi di formazione stellare.
 - **Padronanza Tecnica:** Questo lavoro sottolinea l'importanza vitale dell'ottimizzazione del codice e delle strategie di parallelizzazione per ottenere risultati ad alte prestazioni nel calcolo scientifico.
 
 ## 📂 Struttura della Repository
