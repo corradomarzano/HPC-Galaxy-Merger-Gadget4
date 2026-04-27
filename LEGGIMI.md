@@ -82,12 +82,17 @@ Il progetto implementa una pipeline completa di analisi dei dati:
 
 1. **Preprocessing:** Uno strumento di estrazione basato su Python (`Data_Table_Acquirer.ipynb`) converte gli snapshot binari HDF5 in dataset strutturati `.csv` per una gestione efficiente.
 
-2. **Analisi:** Il Post-processing e l'Analisi Dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
+    Configurazione del codice:
+     - Assegnare alla variabile ```path_in``` il percorso della directory locale contenente gli snapshot di Gadget4;
+     - Impostare la variabile ```path_out``` con il percorso della directory in cui verrà generata la cartella ```data``` (contenente i file CSV elaborati);
+     - Definire la variabile ```N``` come il numero totale di snapshot generati dalla simulazione.
+
+3. **Analisi:** Il Post-processing e l'Analisi Dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
    - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica del codice),
    - Generazione di **istogrammi di densità del gas**,
    - Valutazione dell'**efficienza computazionale** (misurata in termini di tempo di esecuzione) in funzione sia del numero di core utilizzati che della durata totale della simulazione.
 
-*Nota - Installazione delle librerie richieste*:
+*Installazione delle librerie richieste*:
    ```bash
    pip install -r scripts/requirements.txt
    ```
