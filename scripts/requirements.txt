@@ -2,5 +2,4 @@ h5py
 numpy
 matplotlib
 pandas
-opencv-python
 plotly
