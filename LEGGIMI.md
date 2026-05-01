@@ -113,6 +113,13 @@ Il progetto implementa una pipeline completa di analisi dei dati:
    - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica del codice),
    - Generazione di **istogrammi di densità del gas**,
    - Valutazione dell'**efficienza computazionale** (misurata in termini di tempo di esecuzione) in funzione sia del numero di core utilizzati che della durata totale della simulazione.
+  
+   Configurazione del codice:
+     - Assegnare alla variabile ```path_hdf5``` il percorso della directory locale contenente gli snapshot di Gadget4 (Default: ```data_hdf5```);
+     - Impostare la variabile ```path``` con il percorso della directory contenente i file CSV elaborati (Default: ```data```);
+     - Definire la variabile ```N``` come il numero totale di snapshot generati dalla simulazione.
+  
+   Modalità di esecuzione del codice: aprire il notebook e selezionare l'opzione *'Esegui tutto'* (*'Run all'*), oppure eseguire le singole celle di codice dopo aver preventivamente eseguito la prima cella di codice di setup.
 
 ## 📊 Risultati Principali
 
