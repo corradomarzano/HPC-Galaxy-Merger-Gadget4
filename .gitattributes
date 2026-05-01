@@ -1,3 +1,4 @@
 scripts/Data_Analysis.ipynb linguist-vendored=true
 *.py linguist-documentation=true
 *.ipynb linguist-documentation=true
+*.py linguist-documentation=true
