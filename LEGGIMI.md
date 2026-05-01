@@ -76,6 +76,21 @@ mpirun -np N ./Gadget4 param.txt
 
 *Nota*: Specificare i percorsi completi del file dei parametri *param.txt* e della libreria mpi per *mpirun*.
 
+## 🚀 Installazione e Configurazione locale
+
+Per configurare ed eseguire il progetto nel proprio ambiente locale, seguire la procedura riportata di seguito:
+
+**1. Clonazione della repository:**
+```bash
+git clone https://github.com/corradomarzano/HPC-Galaxy-Merger-Gadget4.git
+cd HPC-Galaxy-Merger-Gadget4
+```
+
+**2. Installazione delle librerie richieste:**
+   ```bash
+   pip install -r scripts/requirements.txt
+   ```
+
 ## 💾 Pipeline dei Dati
 
 Il progetto implementa una pipeline completa di analisi dei dati:
@@ -91,11 +106,6 @@ Il progetto implementa una pipeline completa di analisi dei dati:
    - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica del codice),
    - Generazione di **istogrammi di densità del gas**,
    - Valutazione dell'**efficienza computazionale** (misurata in termini di tempo di esecuzione) in funzione sia del numero di core utilizzati che della durata totale della simulazione.
-
-*Installazione delle librerie richieste*:
-   ```bash
-   pip install -r scripts/requirements.txt
-   ```
 
 ## 📊 Risultati Principali
 
