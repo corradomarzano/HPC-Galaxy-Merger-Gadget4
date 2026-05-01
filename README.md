@@ -78,6 +78,21 @@ mpirun -np N ./Gadget4 param.txt
 
 *Note*: Specify the full paths to the parameters' file *param.txt* and to the mpi library for *mpirun*.
 
+## 🚀 Installation & Usage
+
+To run this project locally, follow these steps:
+
+**1. Clone the repository:**
+```bash
+git clone https://github.com/corradomarzano/HPC-Galaxy-Merger-Gadget4.git
+cd HPC-Galaxy-Merger-Gadget4
+```
+
+**2. Install the dependencies:**
+   ```bash
+   pip install -r scripts/requirements.txt
+   ```
+
 ## 💾 Data Pipeline
 
 The project implements a complete data analysis pipeline:
@@ -93,11 +108,6 @@ The project implements a complete data analysis pipeline:
    - Evaluating the **star formation rate (SFR)** and subsequent **gas depletion** (incorporating a mass conservation check to verify numerical accuracy),
    - Plotting **gas density histograms**,
    - Assessing **computational efficiency** (measured by elapsed time) as a function of both the number of cores used and total simulation runtime.
-
-*Install the dependencies*:
-   ```bash
-   pip install -r scripts/requirements.txt
-   ```
 
 ## 📊 Key Results
 
