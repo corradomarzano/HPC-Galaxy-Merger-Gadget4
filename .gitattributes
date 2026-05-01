@@ -1,2 +1,1 @@
-*.ipynb linguist-documentation=true
-*.py linguist-documentation=true
+scripts/Data_Analysis.ipynb linguist-vendored=true
