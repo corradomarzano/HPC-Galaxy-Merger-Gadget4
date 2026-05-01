@@ -95,14 +95,21 @@ cd HPC-Galaxy-Merger-Gadget4
 
 Il progetto implementa una pipeline completa di analisi dei dati:
 
-1. **Preprocessing:** Uno strumento di estrazione basato su Python (`Data_Table_Acquirer.ipynb`) converte gli snapshot binari HDF5 in dataset strutturati `.csv` per una gestione efficiente.
+1. **Preprocessing:** Uno strumento di estrazione basato su Python (`Data_Table_Acquirer.ipynb/.py`) converte gli snapshot binari HDF5 (contenuti nella cartella ```scripts/data_hdf5```) in dataset strutturati `.csv` (salvati nella cartella ```scripts/data```) per una gestione efficiente.
 
     Configurazione del codice:
      - Assegnare alla variabile ```path_in``` il percorso della directory locale contenente gli snapshot di Gadget4;
      - Impostare la variabile ```path_out``` con il percorso della directory in cui verrà generata la cartella ```data``` (contenente i file CSV elaborati);
      - Definire la variabile ```N``` come il numero totale di snapshot generati dalla simulazione.
+  
+    Modalità di esecuzione del codice:
+     - Per eseguire lo script tramite il file ```.py```, utilizzare il seguente comando da terminale:
+       ```bash
+       python scripts/Data_Table_Acquirer.py
+       ```
+     - Se si volesse usare il Notebook Jupyter (```.ipynb```), aprire il file e selezionare l'opzione *'Esegui tutto'* (*'Run all'*).
 
-3. **Analisi:** Il Post-processing e l'Analisi Dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
+2. **Analisi:** Il Post-processing e l'Analisi Dati sono eseguiti in `Data_Analysis.ipynb`. Questo include:
    - Valutazione del **tasso di formazione stellare (SFR)** e conseguente **deplezione del gas** (integrando un controllo sulla conservazione della massa per verificare l'accuratezza numerica del codice),
    - Generazione di **istogrammi di densità del gas**,
    - Valutazione dell'**efficienza computazionale** (misurata in termini di tempo di esecuzione) in funzione sia del numero di core utilizzati che della durata totale della simulazione.
@@ -181,8 +188,12 @@ Il progetto dimostra come Gadget4 sia uno strumento **potente** e **altamente pe
 ## 📂 Struttura della Repository
 
 - `config/`: File di configurazione e parametri di Gadget4.
-- `scripts/`: Strumenti Python per l'elaborazione dei dati e il plotting scientifico.
+
 - `plots/`: Render ad alta risoluzione della simulazione e grafici dell'analisi dei dati.
+
+- `scripts/`: Strumenti Python per l'elaborazione dei dati e il plotting scientifico.
+
+  *Nota*: Il dataset integrale della simulazione con Gadget4 presenta dimensioni eccessive per il caricamento completo su GitHub. Per garantire la fruibilità e la leggerezza della repository, è stato incluso un **"Dataset Dimostrativo"** che comprende i tre snapshot principali descritti nella sezione *Risultati Principali*: 0 (Stato Iniziale), 28 (Fase di Collisione) e 56 (Residuo del Merger). Tali file permettono di testare integralmente gli script ```data_acquirer``` e ```analysis```, consentendo la riproduzione dei grafici precedentemente illustrati. In caso si fosse interessati all'accesso ai dati grezzi ```.hdf5``` completi, è possibile contattarmi via [email](mailto:corrado.marzano1739@gmail.com).
 
 ---
 
