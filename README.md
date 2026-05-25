@@ -171,7 +171,7 @@ The simulation tracks the dynamic transformation of the system over a timespan o
     </p>
   </figcaption>
   <p align="center">
-    <img width="1000" height="1000" src="plots/galaxy_merging_2K.gif" />
+    <img width="1000" height="1000" src="plots/galaxy_merging_2K_30fps_noDMhalos.gif" />
   </p>
 </figure>
 
