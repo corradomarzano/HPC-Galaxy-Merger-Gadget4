@@ -145,7 +145,7 @@ The simulation tracks the dynamic transformation of the system over a timespan o
 - **Visual Mapping**
   - **Halo Dynamics:** Representation of the $\color{blue}{\text{Dark Matter Halos}}$ (in $\color{blue}{blue}$) providing the gravitational potential.
 
-  - **Baryonic Components:** Multi-color mapping of the galaxies' structures ($\color{red}{Red\text{: Bulges}}$; $\color{limegreen}{Green\text{: Disks}}$; $\color{cyan}{Cyan\text{: Gas}}$; $\color{yellow}{Yellow\text{: Stars}}$). 
+  - **Baryonic Components:** Multi-color mapping of the galaxies' structures ($\color{red}{Red\text{: Galactic Bulges}}$; $\color{limegreen}{Green\text{: Galactic Disks}}$; $\color{cyan}{Cyan\text{: Gas}}$; $\color{yellow}{Yellow\text{: Stars}}$). 
 
 - **Key Evolution Phases:**
 
