@@ -142,7 +142,7 @@ La simulazione traccia la trasformazione dinamica del sistema su un arco tempora
 
 - **Mappatura Visiva**
   - **Dinamica degli Aloni:** Rappresentazione degli $\color{blue}{\text{Aloni di Materia Oscura}}$ (in $\color{blue}{blu}$) che forniscono il potenziale gravitazionale.
-  - **Componenti Barioniche:** Mappatura multi-colore delle strutture galattiche ($\color{red}{Rosso\text{: Bulges}}$; $\color{limegreen}{Verde\text{: Dischi}}$; $\color{cyan}{Ciano\text{: Gas}}$; $\color{yellow}{Giallo\text{: Stelle}}$). 
+  - **Componenti Barioniche:** Mappatura multi-colore delle strutture galattiche ($\color{red}{Rosso\text{: Bulbi Galattici}}$; $\color{limegreen}{Verde\text{: Dischi Galattici}}$; $\color{cyan}{Ciano\text{: Gas}}$; $\color{yellow}{Giallo\text{: Stelle}}$). 
 
 - **Fasi Chiave dell'Evoluzione:**
 
@@ -164,6 +164,9 @@ La simulazione traccia la trasformazione dinamica del sistema su un arco tempora
       </i>
     </p>
   </figcaption>
+  <p align="center">
+    <img width="1000" height="1000" src="plots/galaxy_merging_2K_30fps_noDMhalos.gif" />
+  </p>
 </figure>
 
 ### 3. Dinamica della Formazione Stellare, Conservazione Numerica ed Evoluzione della Densità del Gas
