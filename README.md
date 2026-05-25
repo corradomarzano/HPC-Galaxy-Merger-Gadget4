@@ -166,7 +166,7 @@ The simulation tracks the dynamic transformation of the system over a timespan o
   <figcaption>
     <p>
       <i> 
-        $\hspace{28 mm}$ Snapshot 1 $\hspace{58 mm}$ Snapshot 28 $\hspace{58 mm}$ Snapshot 56 <br>
+        $\hspace{26 mm}$ Snapshot 1 $\hspace{56 mm}$ Snapshot 28 $\hspace{56 mm}$ Snapshot 56 <br>
       </i>
     </p>
   </figcaption>
