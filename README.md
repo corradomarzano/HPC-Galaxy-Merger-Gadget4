@@ -157,10 +157,10 @@ The simulation tracks the dynamic transformation of the system over a timespan o
  
   <figure>
   <p align="center">
-    <img width="1000" height="1000" src="plots/DM.png" />
+    <img width="970" height="970" src="plots/DM.png" />
   </p>
   <p align="center">
-    <img width="1000" height="1000" src="plots/matter.png" />
+    <img width="970" height="970" src="plots/matter.png" />
   </p>
   </p>
   <figcaption>
